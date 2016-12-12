@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+   <ui:composition template="/template.xhtml">
+       
+        <ui:define name="body">
+             <div class="title"> <h2> Criar Mensalidade </h2> </div>
+            <div>
+                <h:form>
+
+                    <div class="common session" style="width: 25%">
+                        <div class="center link"> <h:outputLabel value="#{bundle.CreateMensalidadeLabel_aluno}" for="aluno" /> </div>
+                        <div class="center link"> <h:outputText value="#{alunoController.selected.nome}" title="#{bundle.ViewAlunoTitle_nome}"/></div>
+
+                        <div class="center link"> <h:outputLabel value="#{bundle.CreateMensalidadeLabel_atividade}" for="atividade" /></div>
+                        <div class="center link"> <h:outputText value="#{alunoController.selected.id}" title="#{bundle.ViewAlunoTitle_nome}"/></div>
+                        
+                        <div class="center link">
+                            <div class="center link">  <h:outputLabel value="#{bundle.CreateMensalidadeLabel_valor}" for="valor" /></div>
+                            <div class="center link"> <h:inputText id="valor" value="#{mensalidadeController.selected.valor}" title="#{bundle.CreateMensalidadeTitle_valor}" /></div>
+                        </div>
+                    </div>
+
+                    <div class="common session" style="width: 25%">
+                        <div class="center link"><h:commandLink action="#{mensalidadeController.create}" value="#{bundle.CreateMensalidadeSaveLink}" /> </div>
+                        <div class="center link"><h:link outcome="/index" value="#{bundle.MenuPrincipal}"/> </div>
+                    </div>
+                </h:form>
+            </div>
+        </ui:define>
+    </ui:composition>
+
+   
+</html>

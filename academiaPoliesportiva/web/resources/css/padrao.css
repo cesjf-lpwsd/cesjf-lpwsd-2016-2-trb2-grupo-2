@@ -1,0 +1,38 @@
+.title{
+    margin: 0 auto;
+
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+.common{
+    margin: 0 auto; 
+    width: 100%;
+}
+.center{
+    text-align: center;
+}
+.session{
+    border-style: double;
+    border-radius: 15px;
+}
+.link{
+    font-family: cursive;
+    font-size: 20px;
+    font-style: normal;
+    text-decoration: none;
+}
+a:hover { 
+    background-color: yellow;
+}
+a{
+    text-decoration: none;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background: #cbccc8;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#cbccc8));
+    background: -moz-linear-gradient(top, #fff, #cbccc8);
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <div class="title"> <h2> Cadastro de Mensalidades </h2> </div>
+        <ui:define name="body">
+
+            <h:form>
+                <div class="common session" style="width: 100%">
+                    <div class="center link"><h:outputLabel value="#{bundle.EditMensalidadeLabel_aluno}" for="aluno" /></div>
+                    <div class="center link">
+                        <h:selectOneMenu id="aluno" value="#{mensalidadeController.selected.aluno}" title="#{bundle.EditMensalidadeTitle_aluno}" >
+                            <f:selectItems value="#{alunoController.itemsAvailableSelectOne}"/>
+                        </h:selectOneMenu>
+                    </div>
+                    <div class="center link"><h:outputLabel value="#{bundle.EditMensalidadeLabel_atividade}" for="atividade" /></div>
+                    <div class="center link"><h:inputText id="atividade" value="#{mensalidadeController.selected.atividade}" title="#{bundle.EditMensalidadeTitle_atividade}" /></div>
+                    <div class="center link"><h:outputLabel value="#{bundle.EditMensalidadeLabel_manutencao}" for="manutencao" /></div>
+                    <div class="center link"> <h:inputText id="manutencao" value="#{mensalidadeController.selected.manutencao}" title="#{bundle.EditMensalidadeTitle_manutencao}" /></div>
+                    <div class="center link"><h:outputLabel value="#{bundle.EditMensalidadeLabel_dataVencimento}" for="dataVencimento" /></div>
+                    <div class="center link">
+                        <h:inputText id="dataVencimento" value="#{mensalidadeController.selected.dataVencimento}" title="#{bundle.EditMensalidadeTitle_dataVencimento}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    </div>
+                    <div class="center link"> <h:outputLabel value="#{bundle.EditMensalidadeLabel_id}" for="id" /></div>
+                    <div class="center link"> <h:inputText id="id" value="#{mensalidadeController.selected.id}" title="#{bundle.EditMensalidadeTitle_id}" /></div>
+                    <div class="center link"><h:outputLabel value="#{bundle.EditMensalidadeLabel_valor}" for="valor" /></div>
+                    <div class="center link"> <h:inputText id="valor" value="#{mensalidadeController.selected.valor}" title="#{bundle.EditMensalidadeTitle_valor}" /></div>
+                    <div class="center link">  <h:outputLabel value="#{bundle.EditMensalidadeLabel_dataPagamento}" for="dataPagamento" /></div>
+                    <div class="center link"><h:inputText id="dataPagamento" value="#{mensalidadeController.selected.dataPagamento}" title="#{bundle.EditMensalidadeTitle_dataPagamento}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText></div>
+
+                </div>
+                
+                <div class="common session" style="width: 25%">
+                <div class="center link"> <h:commandLink action="#{mensalidadeController.update}" value="#{bundle.EditMensalidadeSaveLink}"/> </div>
+                <div class="center link">  <h:link outcome="View" value="#{bundle.EditMensalidadeViewLink}"/> </div>
+                <div class="center link"> <h:commandLink action="#{mensalidadeController.prepareList}" value="#{bundle.EditMensalidadeShowAllLink}" immediate="true"/> </div>
+                <div class="center link"> <h:link outcome="/index" value="#{bundle.EditMensalidadeIndexLink}" /> </div>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

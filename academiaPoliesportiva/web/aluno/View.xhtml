@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+      
+        <ui:define name="body">
+              <div class="title"> <h2> Visualizar Aluno </h2> </div>
+            <h:form>
+                <div class="common session" style="width: 100%">
+
+                         <div class="center link"><h:outputText value="#{bundle.ViewAlunoLabel_nome}"/></div>
+                         <div class="center link"><h:outputText value="#{alunoController.selected.nome}" title="#{bundle.ViewAlunoTitle_nome}"/></div>
+
+                </div>
+                <div class="common session" style="width: 100%">
+                    <div class="center link"><h:outputText value="Atividades:"/> </div>
+                    <br />
+                    <h:panelGrid columns="1">
+                        <h:dataTable value="#{alunoController.selected.atividades}" var="item" border="0" cellpadding="1" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                            <h:column>
+                                <h:outputText value="#{item.nome}"/>
+                            </h:column>
+                            <h:column>
+                                <h:commandLink action="#{alunoController.prepareListMensalidades}" value="Ver Mensalidades"/>
+                                <h:outputText value=" "/>
+                                <h:commandLink action="#{alunoController.prepareCreateMensalidades}" value="Pagar Mensalidades"/>
+                                <h:outputText value=" "/>
+                            </h:column>
+                        </h:dataTable>
+
+                    </h:panelGrid>
+                    </div>    
+                    <div class="common session" style="width: 25%">
+                        <div class="center link"> <h:link outcome="/index" value="#{bundle.MenuPrincipal}"/> </div>
+                    </div>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
